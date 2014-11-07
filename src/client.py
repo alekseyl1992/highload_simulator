@@ -28,6 +28,8 @@ class Client(SimObj):
             # send request
             request = Message(self.env, self.id, "Hello, Server!", 10)
             request.send(self.balancer_pipe, self.client_pipe, random.uniform(1, 10))
+            # yield self.env.timeout(random.uniform(1, 10))
+            # self.balancer_pipe.put(request)
             print("[Client %d] Request sent" % self.id)
 
             # wait for response

@@ -1,4 +1,5 @@
 from enum import Enum
+import random
 import simpy
 from src.simobj import SimObj
 
@@ -27,8 +28,8 @@ class Balancer(SimObj):
         return self.servers_pipe
 
     def get_next_server_id(self):
-        current_server_id = (current_server_id + 1) % len(self.servers)
-        return current_server_id
+        self.current_server_id = (self.current_server_id + 1) % len(self.servers)
+        return self.current_server_id
 
     def start(self):
         print("Balancer started at %d" % self.env.now)
@@ -44,7 +45,7 @@ class Balancer(SimObj):
         while True:
             request = yield self.clients_pipe.get()
 
-            server_id = get_next_server_id()
+            server_id = self.get_next_server_id()
             server_pipe = self.servers[server_id].get_pipe()
 
             # send request to server asynchronously

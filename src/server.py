@@ -1,4 +1,6 @@
+import random
 import simpy
+from src.message import Message
 from src.simobj import SimObj
 
 
@@ -28,13 +30,13 @@ class Server(SimObj):
             request = yield self.server_pipe.get()
 
             req_time = random.uniform(10, 20)
-            yield env.timeout(req_time)
+            yield self.env.timeout(req_time)
             print("[Server: %d, pid: %d] Request from %d: \"%s\" handled at %d"
-                  % (self.id, pid, request.source_id, request.text, env.now))
+                  % (self.id, pid, request.source_id, request.text, self.env.now))
 
             # send response
-            response = Message(self.env, self.id, None, "Hello, Client! from %d to %d!" % (self.id, request.source_id), 20)
-            request.get_next_response_pipe().put(response)
+            response = Message(self.env, self.id, "Hello, Client! from %d to %d!" % (self.id, request.source_id), 20)
+            response.send(request.get_next_response_pipe(), None, random.uniform(1, 2))
 
             self.requests_count += 1
 
