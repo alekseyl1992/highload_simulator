@@ -23,8 +23,9 @@ if __name__ == "__main__":
         client = Client(env, balancer.get_clients_pipe(), 10, 20, i)
         client.start()
 
-    env.run(until=100)
+    env.run(until=1000)
 
+    # analise statistics
     print("-----------------------")
     print("Statistics")
     print("-----------------------")

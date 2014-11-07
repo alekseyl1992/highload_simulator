@@ -31,6 +31,8 @@ class Balancer(SimObj):
         return current_server_id
 
     def start(self):
+        print("Balancer started at %d" % self.env.now)
+
         self.send_process = self.env.process(self.sender())
         self.recv_process = self.env.process(self.receiver())
 
@@ -56,7 +58,7 @@ class Balancer(SimObj):
         while True:
             # wait for any response from servers
             response = yield self.servers_pipe.get()
-            client_pipe = response.response_pipe
+            client_pipe = response.get_next_response_pipe()
 
             # send response back to the client asynchronously
             # TODO: time should relate on client's type and/or speed
