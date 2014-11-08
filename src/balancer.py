@@ -10,10 +10,10 @@ class BalanceMode(Enum):
 
 
 class Balancer(SimObj):
-    def __init__(self, env, mode, servers):
-        super().__init__(env)
-        self.mode = mode
+    def __init__(self, env, id, config):
+        super().__init__(env, id, config)
 
+        mode = config['mode']
         if mode == BalanceMode.ROUND_ROBIN:
             self.get_next_server_id = self._round_robin
         elif mode == BalanceMode.LEAST_CONN:
@@ -21,7 +21,6 @@ class Balancer(SimObj):
         else:
             raise NotImplementedError("Such balance mode not implemented")
 
-        self.servers = servers
         self.current_server_id = 0
         self.clients_pipe = simpy.Store(self.env)
         self.servers_pipe = simpy.Store(self.env)
@@ -36,7 +35,7 @@ class Balancer(SimObj):
         return self.servers_pipe
 
     def _round_robin(self):
-        self.current_server_id = (self.current_server_id + 1) % len(self.servers)
+        self.current_server_id = (self.current_server_id + 1) % len(self.config['servers'])
         return self.current_server_id
 
     def _least_conn(self):
@@ -66,7 +65,7 @@ class Balancer(SimObj):
             request = yield self.clients_pipe.get()
 
             server_id = self.get_next_server_id()
-            server_pipe = self.servers[server_id].get_pipe()
+            server_pipe = self.config['servers'][server_id].get_pipe()
 
             # send request to server asynchronously
             request.send_async(server_pipe, self.servers_pipe, random.uniform(1, 2))

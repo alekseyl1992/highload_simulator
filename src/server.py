@@ -1,14 +1,14 @@
 import random
 import simpy
+from src.database import FullScanQuery
 from src.message import Message
 from src.simobj import SimObj
 
 
 class Server(SimObj):
-    def __init__(self, env, id, cores_count):
-        super().__init__(env)
-        self.id = id
-        self.coresCount = cores_count
+    def __init__(self, env, id, config):
+        super().__init__(env, id, config)
+
         self.server_pipe = simpy.Store(self.env)
         self.requests_count = 0
 
@@ -24,7 +24,7 @@ class Server(SimObj):
         print("Server started at %d" % self.env.now)
 
         # fork
-        for pid in range(0, self.coresCount):
+        for pid in range(0, self.config['cores']):
             self.processes.append(self.env.process(self.work(pid)))
 
     def work(self, pid):
@@ -36,6 +36,11 @@ class Server(SimObj):
             yield self.env.timeout(req_time)
             print("[Server: %d, pid: %d] Request from %d: \"%s\" handled at %d"
                   % (self.id, pid, request.source_id, request.text, self.env.now))
+
+            # query db
+            yield from self.config['db'].query(FullScanQuery())
+
+            # render page
 
             # send response
             response = Message(self.env, self.id, "Hello, Client! from %d to %d!" % (self.id, request.source_id), 20)
