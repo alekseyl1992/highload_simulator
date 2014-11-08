@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     # create servers
     servers = []
-    for i in range(0, 1):
+    for i in range(0, 4):
         server = Server(env, i, 10)
         servers.append(server)
         server.start()
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     balancer.start()
 
     # create clients
-    for i in range(0, 1):
+    for i in range(0, 100):
         client = Client(env, balancer.get_clients_pipe(), 10, 20, i)
         client.start()
 

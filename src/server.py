@@ -36,7 +36,9 @@ class Server(SimObj):
 
             # send response
             response = Message(self.env, self.id, "Hello, Client! from %d to %d!" % (self.id, request.source_id), 20)
-            response.send(request.get_next_response_pipe(), None, random.uniform(1, 2))
+            balancer_pipe = request.get_next_response_pipe()
+            client_pipe = request.get_next_response_pipe()
+            yield from response.send(balancer_pipe, client_pipe, random.uniform(1, 2))
 
             self.requests_count += 1
 
