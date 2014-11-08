@@ -14,6 +14,9 @@ class Server(SimObj):
 
         self.processes = []
 
+    def get_connections_count(self):
+        return len(self.server_pipe.items)
+
     def get_pipe(self):
         return self.server_pipe
 

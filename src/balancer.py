@@ -13,6 +13,14 @@ class Balancer(SimObj):
     def __init__(self, env, mode, servers):
         super().__init__(env)
         self.mode = mode
+
+        if mode == BalanceMode.ROUND_ROBIN:
+            self.get_next_server_id = self._round_robin
+        elif mode == BalanceMode.LEAST_CONN:
+            self.get_next_server_id = self._least_conn
+        else:
+            raise NotImplementedError("Such balance mode not implemented")
+
         self.servers = servers
         self.current_server_id = 0
         self.clients_pipe = simpy.Store(self.env)
@@ -27,9 +35,21 @@ class Balancer(SimObj):
     def get_servers_pipe(self):
         return self.servers_pipe
 
-    def get_next_server_id(self):
+    def _round_robin(self):
         self.current_server_id = (self.current_server_id + 1) % len(self.servers)
         return self.current_server_id
+
+    def _least_conn(self):
+        min_conn_count = None
+        server_id = None
+
+        for i, server in enumerate(self.servers):
+            conn_count = server.get_connections_count()
+            if min_conn_count is None or conn_count < min_conn_count:
+                min_conn_count = conn_count
+                server_id = i
+
+        return server_id
 
     def start(self):
         print("Balancer started at %d" % self.env.now)
