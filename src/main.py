@@ -1,5 +1,6 @@
+import random
 import simpy
-from src.database import Database
+from src.database import Database, FullScanQuery, CoveringIndexQuery, IndexQuery, RangeQuery
 from src.pager import Pager
 from src.time import TrTime
 from src.balancer import Balancer, BalanceMode
@@ -15,13 +16,23 @@ if __name__ == "__main__":
         cores=4
     ))
 
+    # create bd query pattern
+    query_pattern = (
+        dict(type=FullScanQuery,        count=lambda: int(random.randint(0, 99) > 90)),
+        dict(type=CoveringIndexQuery,   count=lambda: random.randint(0, 10)),
+        dict(type=IndexQuery,           count=lambda: random.randint(0, 2)),
+        dict(type=RangeQuery,           count=lambda: random.randint(0, 2)),
+    )
+
     # create servers
     servers = []
     for i in range(0, 4):
         server = Server(env, i, dict(
             cores=4,
             db=db,
-            render_time=TrTime(10, 20)
+            render_time=TrTime(10, 20),
+            query_pattern=query_pattern,
+            db_latency_time=TrTime(10, 22)
         ))
 
         servers.append(server)

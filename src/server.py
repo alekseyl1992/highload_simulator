@@ -38,7 +38,14 @@ class Server(SimObj):
                   % (self.id, pid, request.source_id, request.data['page_id'], self.env.now))
 
             # query db
-            yield from self.config['db'].query(FullScanQuery())
+            db_latency_time = self.config['db_latency_time']
+            for query in self.config['query_pattern']:
+                query_obj = query['type']()
+                query_count = query['count']()
+
+                for i in range(0, query_count):
+                    yield self.env.timeout(db_latency_time.get())
+                    yield from self.config['db'].query(query_obj)
 
             # render page
 
