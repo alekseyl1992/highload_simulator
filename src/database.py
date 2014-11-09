@@ -1,27 +1,27 @@
 import random
 import simpy
 from src.simobj import SimObj
-from src.time import Time
+from src.time import TrTime
 
 
-class CoveringIndexQuery(Time):
+class CoveringIndexQuery(TrTime):
     def __init__(self):
-        super().__init__(2, 1)
+        super().__init__(1, 3)
 
 
-class IndexQuery(Time):
+class IndexQuery(TrTime):
     def __init__(self):
-        super().__init__(20, 10)
+        super().__init__(10, 20)
 
 
-class RangeQuery(Time):
+class RangeQuery(TrTime):
     def __init__(self):
-        super().__init__(80, 30)
+        super().__init__(30, 80)
 
 
-class FullScanQuery(Time):
+class FullScanQuery(TrTime):
     def __init__(self):
-        super().__init__(200, 100)
+        super().__init__(100, 300)
 
 
 class Database(SimObj):

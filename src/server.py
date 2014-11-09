@@ -21,7 +21,7 @@ class Server(SimObj):
         return self.server_pipe
 
     def start(self):
-        print("Server started at %d" % self.env.now)
+        print("Server %d started at %d" % (self.id, self.env.now))
 
         # fork
         for pid in range(0, self.config['cores']):
@@ -43,7 +43,7 @@ class Server(SimObj):
             # render page
 
             # send response
-            response = Message(self.env, self.id, "Hello, Client! from %d to %d!" % (self.id, request.source_id), 20)
+            response = Message(self.env, self.id, request.data)
             balancer_pipe = request.get_next_response_pipe()
             client_pipe = request.get_next_response_pipe()
             yield from response.send(balancer_pipe, client_pipe, random.uniform(1, 2))

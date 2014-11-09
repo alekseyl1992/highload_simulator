@@ -1,6 +1,6 @@
 import simpy
 from src.database import Database
-from src.time import Time
+from src.time import TrTime
 from src.balancer import Balancer, BalanceMode
 from src.client import Client, ClientType
 from src.server import Server
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     # create servers
     servers = []
     for i in range(0, 4):
-        server = Server(env, i, dict(cores=4, db=db, render_time=Time(10, 20)))
+        server = Server(env, i, dict(cores=4, db=db, render_time=TrTime(10, 20)))
         servers.append(server)
         server.start()
 
@@ -23,7 +23,9 @@ if __name__ == "__main__":
     balancer = Balancer(env, 0, dict(
         mode=BalanceMode.ROUND_ROBIN,
         servers=servers,
-        balance_time=Time(2, 1)))
+        cache_size=100,
+        render_time=TrTime(2, 8),
+        balance_time=TrTime(1, 2)))
     balancer.start()
 
     # create clients
@@ -31,8 +33,10 @@ if __name__ == "__main__":
         client = Client(env, i,
                         dict(balancer_pipe=balancer.get_clients_pipe(),
                              type=ClientType.PC,
-                             uplink_speed=Time(10, 1),
-                             downlink_speed=Time(20, 2)))
+                             guest=True,
+                             idle_time=TrTime(1*1000, 20*1000),
+                             uplink_speed=TrTime(10, 30),
+                             downlink_speed=TrTime(10, 30)))
         client.start()
 
     env.run(until=1000)

@@ -27,12 +27,16 @@ class Client(SimObj):
             yield self.env.timeout(idle_time)
 
             # send request
-            request = Message(self.env, self.id, "Hello, Server!", 10)
+            request = Message(self.env, self.id,
+                              dict(
+                                  static=True,
+                                  guest=self.config['guest'],
+                                  page_id=0))
+
             yield from request.send(self.config['balancer_pipe'], self.client_pipe, random.uniform(1, 10))
-            # yield self.env.timeout(random.uniform(1, 10))
-            # self.balancer_pipe.put(request)
-            print("[Client %d] Request sent" % self.id)
+
+            print("[Client %d] Request: %d" % (self.id, request.data['page_id']))
 
             # wait for response
             response = yield self.client_pipe.get()
-            print("[Client %d] Response: %s" % (self.id, response.text))
+            print("[Client %d] Response: %d" % (self.id, response.data['page_id']))
