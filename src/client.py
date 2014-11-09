@@ -26,17 +26,15 @@ class Client(SimObj):
             idle_time = random.uniform(1, 10)
             yield self.env.timeout(idle_time)
 
-            # send request
-            request = Message(self.env, self.id,
-                              dict(
-                                  static=True,
-                                  guest=self.config['guest'],
-                                  page_id=0))
+            # load next page
+            requests = self.config['pager'].get_random_page_requests(self)
+            for request in requests:
+                yield from request.send(self.config['balancer_pipe'],
+                                        self.client_pipe,
+                                        random.uniform(1, 10))
 
-            yield from request.send(self.config['balancer_pipe'], self.client_pipe, random.uniform(1, 10))
+                print("[Client %d] Request: %d" % (self.id, request.data['page_id']))
 
-            print("[Client %d] Request: %d" % (self.id, request.data['page_id']))
-
-            # wait for response
-            response = yield self.client_pipe.get()
-            print("[Client %d] Response: %d" % (self.id, response.data['page_id']))
+                # wait for response
+                response = yield self.client_pipe.get()
+                print("[Client %d] Response: %d" % (self.id, response.data['page_id']))

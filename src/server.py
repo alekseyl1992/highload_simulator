@@ -34,8 +34,8 @@ class Server(SimObj):
 
             req_time = random.uniform(10, 20)
             yield self.env.timeout(req_time)
-            print("[Server: %d, pid: %d] Request from %d: \"%s\" handled at %d"
-                  % (self.id, pid, request.source_id, request.text, self.env.now))
+            print("[Server: %d, pid: %d] Request from %d: page %d handled at %d"
+                  % (self.id, pid, request.source_id, request.data['page_id'], self.env.now))
 
             # query db
             yield from self.config['db'].query(FullScanQuery())

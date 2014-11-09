@@ -113,7 +113,7 @@ class Balancer(SimObj):
             client_pipe = response.get_next_response_pipe()
 
             # handle cache
-            if response.data['guest']:
+            if response.data['guest'] and not response.data['static']:
                 if len(self.cache) > self.config['cache_size']:
                     self.cache.pop(0)
 

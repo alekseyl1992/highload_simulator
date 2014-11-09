@@ -40,7 +40,7 @@ class Database(SimObj):
             disk = self.disk.request()
             yield disk
 
-        query_time = random.normalvariate(q.m, q.s)
+        query_time = q.get()
         yield self.env.timeout(query_time)
 
         if disk is not None:
