@@ -16,7 +16,7 @@ class Simulation:
     def __init__(self):
         self.logger = Logger(self.__class__.__name__)
 
-    def start(self):
+    def start(self, servers_count):
 
         env = simpy.Environment()
         start_time = env.now
@@ -36,14 +36,14 @@ class Simulation:
 
         # create servers
         servers = []
-        for i in range(0, 4):
+        for i in range(0, servers_count):
             server = Server(env, self.logger, i, dict(
-                cores=120,
+                cores=20,
                 db=db,
-                render_time=TrTime(3, 10),
+                render_time=TrTime(30, 100),
                 query_pattern=query_pattern,
-                db_latency_time=TrTime(2, 3),
-                balancer_latency_time=TrTime(1, 2)
+                db_latency_time=TrTime(20, 30),
+                balancer_latency_time=TrTime(10, 20)
             ))
 
             servers.append(server)
@@ -54,7 +54,7 @@ class Simulation:
             mode=BalanceMode.ROUND_ROBIN,
             servers=servers,
             cache_size=100,
-            cache_time=1*60*1000,  # 1 minute
+            cache_time=1*30*1000,  # half of minute
             render_time=TrTime(2, 8),
             balance_time=TrTime(1, 2),
             sender_processes=4,
@@ -106,3 +106,5 @@ class Simulation:
         average_request_time /= len(clients)
 
         self.logger.log(self, "Average request time: %f" % average_request_time)
+
+        return average_request_time

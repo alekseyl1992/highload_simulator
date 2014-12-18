@@ -1,0 +1,106 @@
+C:\python\python.exe C:\Projects\Python\highload_simulator\src\main.py
+Starting simulation with 1 servers
+-----------------------
+Statistics
+-----------------------
+[Balancer] RPS: 848.683333
+[Server 0] RPS: 55.455000
+Average request time: 863.430146
+-------------------
+
+Starting simulation with 2 servers
+-----------------------
+Statistics
+-----------------------
+[Balancer] RPS: 906.201667
+[Server 0] RPS: 54.523333
+[Server 1] RPS: 54.533333
+Average request time: 454.672719
+-------------------
+
+Starting simulation with 3 servers
+-----------------------
+Statistics
+-----------------------
+[Balancer] RPS: 913.363333
+[Server 0] RPS: 38.541667
+[Server 1] RPS: 38.553333
+[Server 2] RPS: 38.548333
+Average request time: 444.303290
+-------------------
+
+Starting simulation with 4 servers
+-----------------------
+Statistics
+-----------------------
+[Balancer] RPS: 909.636667
+[Server 0] RPS: 28.001667
+[Server 1] RPS: 28.001667
+[Server 2] RPS: 27.998333
+[Server 3] RPS: 28.000000
+Average request time: 448.753311
+-------------------
+
+Starting simulation with 5 servers
+-----------------------
+Statistics
+-----------------------
+[Balancer] RPS: 912.963333
+[Server 0] RPS: 23.128333
+[Server 1] RPS: 23.126667
+[Server 2] RPS: 23.128333
+[Server 3] RPS: 23.128333
+[Server 4] RPS: 23.126667
+Average request time: 444.455465
+-------------------
+
+Starting simulation with 6 servers
+-----------------------
+Statistics
+-----------------------
+[Balancer] RPS: 906.813333
+[Server 0] RPS: 18.210000
+[Server 1] RPS: 18.213333
+[Server 2] RPS: 18.211667
+[Server 3] RPS: 18.210000
+[Server 4] RPS: 18.210000
+[Server 5] RPS: 18.210000
+Average request time: 451.954930
+-------------------
+
+Starting simulation with 7 servers
+-----------------------
+Statistics
+-----------------------
+[Balancer] RPS: 906.488333
+[Server 0] RPS: 15.525000
+[Server 1] RPS: 15.528333
+[Server 2] RPS: 15.526667
+[Server 3] RPS: 15.530000
+[Server 4] RPS: 15.526667
+[Server 5] RPS: 15.530000
+[Server 6] RPS: 15.523333
+Average request time: 452.602615
+-------------------
+
+Starting simulation with 8 servers
+-----------------------
+Statistics
+-----------------------
+[Balancer] RPS: 901.833333
+[Server 0] RPS: 13.066667
+[Server 1] RPS: 13.070000
+[Server 2] RPS: 13.071667
+[Server 3] RPS: 13.071667
+[Server 4] RPS: 13.070000
+[Server 5] RPS: 13.071667
+[Server 6] RPS: 13.070000
+[Server 7] RPS: 13.068333
+Average request time: 458.884777
+-------------------
+
+-------------------
+Experiment results:
+(2, 454.6727191741081)
+
+Process finished with exit code 0
