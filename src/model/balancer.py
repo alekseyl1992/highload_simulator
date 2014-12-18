@@ -1,8 +1,10 @@
 from enum import Enum
-import random
+import math
+
 import simpy
-from src.message import Message
-from src.simobj import SimObj
+
+from src.util.message import Message
+from src.util.simobj import SimObj
 
 
 class BalanceMode(Enum):
@@ -28,9 +30,10 @@ class Balancer(SimObj):
         self.servers_pipe = simpy.Store(self.env)
 
         self.requests_process = None
-        self.send_process = None
-        self.recv_process = None
+        self.send_processes = []
+        self.recv_processes = []
 
+        self.requests_count = 0
         self.connections_count = 0
 
         self.cache = []  # cached pages' ids circular buffer
@@ -61,8 +64,12 @@ class Balancer(SimObj):
         self.logger.log(self, "Balancer started at %d" % self.env.now)
 
         self.requests_process = self.env.process(self.requests_handler())
-        self.send_process = self.env.process(self.sender())
-        self.recv_process = self.env.process(self.receiver())
+
+        for i in range(0, self.config['sender_processes']):
+            self.send_processes.append(self.env.process(self.sender()))
+
+        for i in range(0, self.config['receiver_processes']):
+            self.recv_processes.append(self.env.process(self.receiver()))
 
     def _render_page(self, request):
         render_time = self.config['render_time'].get()
@@ -92,7 +99,9 @@ class Balancer(SimObj):
         :param request:
         """
 
-        yield self.env.timeout(request.data['uplink_speed'].get() * self.connections_count)
+        yield self.env.timeout(
+            request.data['uplink_speed'].get() * (1 + math.log(self.connections_count, 10)))
+
         self.requests_pipe.put(request)
 
     def sender(self):
@@ -109,7 +118,7 @@ class Balancer(SimObj):
                 continue
 
             # handle cache
-            if request.data['guest'] and request.data['page_id'] in self.cache:
+            if request.data['guest'] and self.in_cache(request.data['page_id']):
                 yield from self._render_page(request)
                 continue
 
@@ -137,13 +146,31 @@ class Balancer(SimObj):
                 if len(self.cache) > self.config['cache_size']:
                     self.cache.pop(0)
 
-                self.cache.append(response.data['page_id'])
+                self.cache.append((self.env.now, response.data['page_id']))
 
             # send response back to the client asynchronously
-            response.send_async(client_pipe, None, response.data['downlink_speed'].get() * self.connections_count, self._release_connection)
+            response.send_async(client_pipe,
+                                None,
+                                response.data['downlink_speed'].get() * (1 + math.log(self.connections_count, 10)),
+                                self._release_connection)
 
     def _acquire_connection(self):
         self.connections_count += 1
 
     def _release_connection(self):
         self.connections_count -= 1
+        self.requests_count += 1
+
+    def get_requests_count(self):
+        return self.requests_count
+
+    def in_cache(self, page_id):
+        for i, entry in enumerate(self.cache):
+            if entry[1] == page_id:
+                if entry[0] < (self.env.now + self.config['cache_time']):
+                    return True  # found and fresh
+                else:
+                    self.cache.pop(i)
+                    return False  # found, but obsolete
+
+        return False  # not found

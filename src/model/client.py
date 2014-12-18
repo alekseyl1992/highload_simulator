@@ -1,8 +1,8 @@
 from enum import Enum
-import random
+
 import simpy
-from src.message import Message
-from src.simobj import SimObj
+
+from src.util.simobj import SimObj
 
 
 class ClientType(Enum):
@@ -16,6 +16,9 @@ class Client(SimObj):
 
         self.client_pipe = simpy.Store(self.env)
 
+        self.requests_sent = 0
+        self.requests_sent_time = 0
+
         self.process = None
 
     def start(self):
@@ -23,12 +26,17 @@ class Client(SimObj):
 
     def work(self):
         while True:
-            idle_time = self.config['idle_time']
-            yield self.env.timeout(idle_time.get())
+            page_idle_time = self.config['page_idle_time']
+            yield self.env.timeout(page_idle_time.get())
 
             # load next page
             requests = self.config['pager'].get_random_page_requests(self)
             for request in requests:
+                request_idle_time = self.config['request_idle_time']
+                yield self.env.timeout(request_idle_time.get())
+
+                request_time = self.env.now
+
                 yield from request.send(self.config['balancer_pipe'],
                                         self.client_pipe,
                                         self.config['uplink_speed'].get())
@@ -38,3 +46,13 @@ class Client(SimObj):
                 # wait for response
                 response = yield self.client_pipe.get()
                 self.logger.log(self, "[Client %d] Response: %d" % (self.id, response.data['page_id']))
+
+                # statistics
+                self.requests_sent += 1
+                self.requests_sent_time += self.env.now - request_time
+
+    def get_average_request_time(self):
+        if self.requests_sent == 0:
+            return 0
+
+        return self.requests_sent_time / self.requests_sent

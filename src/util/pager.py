@@ -1,5 +1,6 @@
 import random
-from src.message import Message
+
+from src.util.message import Message
 
 
 class Pager:

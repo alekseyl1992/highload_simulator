@@ -1,8 +1,9 @@
 import random
+
 import simpy
-from src.database import FullScanQuery
-from src.message import Message
-from src.simobj import SimObj
+
+from src.util.message import Message
+from src.util.simobj import SimObj
 
 
 class Server(SimObj):
@@ -32,8 +33,6 @@ class Server(SimObj):
             # wait for request
             request = yield self.server_pipe.get()
 
-            req_time = random.uniform(10, 20)
-            yield self.env.timeout(req_time)
             self.logger.log(self, "[Server: %d, pid: %d] Request from %d: page %d handled at %d"
                   % (self.id, pid, request.source_id, request.data['page_id'], self.env.now))
 
@@ -48,12 +47,15 @@ class Server(SimObj):
                     yield from self.config['db'].query(query_obj)
 
             # render page
+            yield self.env.timeout(self.config['render_time'].get())
 
             # send response
             response = Message(self.env, self.id, request.data)
             balancer_pipe = request.get_next_response_pipe()
             client_pipe = request.get_next_response_pipe()
-            yield from response.send(balancer_pipe, client_pipe, random.uniform(1, 2))
+
+            yield from response.send(balancer_pipe, client_pipe,
+                                     self.config['balancer_latency_time'].get())
 
             self.requests_count += 1
 
