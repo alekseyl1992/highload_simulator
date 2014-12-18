@@ -23,9 +23,11 @@ class Balancer(SimObj):
             raise NotImplementedError("Such balance mode not implemented")
 
         self.current_server_id = 0
-        self.clients_pipe = simpy.Store(self.env)
+        self.clients_pipe = simpy.Store(self.env, self.config['max_clients'])
+        self.requests_pipe = simpy.Store(self.env)
         self.servers_pipe = simpy.Store(self.env)
 
+        self.requests_process = None
         self.send_process = None
         self.recv_process = None
 
@@ -58,6 +60,7 @@ class Balancer(SimObj):
     def start(self):
         print("Balancer started at %d" % self.env.now)
 
+        self.requests_process = self.env.process(self.requests_handler())
         self.send_process = self.env.process(self.sender())
         self.recv_process = self.env.process(self.receiver())
 
@@ -70,7 +73,27 @@ class Balancer(SimObj):
         response.response_pipes.append(request.get_next_response_pipe())
 
         self.servers_pipe.put(response)
-        self._release_connection()
+
+    def requests_handler(self):
+        """
+        Asynchronously reads requests from clients to requests pipe
+        """
+
+        while True:
+            request = yield self.clients_pipe.get()
+
+            self._acquire_connection()
+            self.env.process(self.handle_request(request))
+
+    def handle_request(self, request):
+        """
+        Wait some time depending on client uplink_speed and connections_count
+        Copying request from clients pipe to requests pipe
+        :param request:
+        """
+
+        yield self.env.timeout(request.data['uplink_speed'].get() * self.connections_count)
+        self.requests_pipe.put(request)
 
     def sender(self):
         """
@@ -78,8 +101,7 @@ class Balancer(SimObj):
         (using balancing, cache, static)
         """
         while True:
-            request = yield self.clients_pipe.get()
-            self.connections_count += 1
+            request = yield self.requests_pipe.get()
 
             # handle static
             if request.data['static']:
@@ -96,9 +118,8 @@ class Balancer(SimObj):
             server_pipe = self.config['servers'][server_id].get_pipe()
 
             # send request to server asynchronously
-            # TODO: time should be affected by connections_count
             balance_time = self.config['balance_time'].get()
-            request.send_async(server_pipe, self.servers_pipe, balance_time, self._release_connection)
+            request.send_async(server_pipe, self.servers_pipe, balance_time)
 
     def receiver(self):
         """
@@ -108,7 +129,6 @@ class Balancer(SimObj):
         while True:
             # wait for any response from servers
             response = yield self.servers_pipe.get()
-            self.connections_count += 1
 
             client_pipe = response.get_next_response_pipe()
 
@@ -120,8 +140,10 @@ class Balancer(SimObj):
                 self.cache.append(response.data['page_id'])
 
             # send response back to the client asynchronously
-            # TODO: time should relate on client's type and/or speed
-            response.send_async(client_pipe, None, random.uniform(10, 22), self._release_connection)
+            response.send_async(client_pipe, None, response.data['downlink_speed'].get() * self.connections_count, self._release_connection)
+
+    def _acquire_connection(self):
+        self.connections_count += 1
 
     def _release_connection(self):
         self.connections_count -= 1

@@ -16,7 +16,9 @@ class Pager:
                           dict(
                               static=False,
                               guest=client.config['guest'],
-                              page_id=dynamic_page_id))
+                              page_id=dynamic_page_id,
+                              uplink_speed=client.config['uplink_speed'],
+                              downlink_speed=client.config['downlink_speed']))
         requests.append(request)
 
         # static files (scripts, styles, images)
@@ -29,7 +31,9 @@ class Pager:
             static_request = Message(self.env, client.id, dict(
                 static=True,
                 guest=client.config['guest'],
-                page_id=static_file_id
+                page_id=static_file_id,
+                uplink_speed=client.config['uplink_speed'],
+                downlink_speed=client.config['downlink_speed']
             ))
 
             requests.append(static_request)

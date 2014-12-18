@@ -44,7 +44,8 @@ if __name__ == "__main__":
         servers=servers,
         cache_size=100,
         render_time=TrTime(2, 8),
-        balance_time=TrTime(1, 2)))
+        balance_time=TrTime(1, 2),
+        max_clients=100000))
     balancer.start()
 
     # create pager
@@ -56,7 +57,7 @@ if __name__ == "__main__":
 
     # create clients
     for i in range(0, 100):
-        client = Client(env, i,dict(
+        client = Client(env, i, dict(
             balancer_pipe=balancer.get_clients_pipe(),
             pager=pager,
             type=ClientType.PC,
@@ -67,7 +68,7 @@ if __name__ == "__main__":
         ))
         client.start()
 
-    env.run(until=1000)
+    env.run(until=1*60*1000)
 
     # analise statistics
     print("-----------------------")

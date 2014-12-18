@@ -23,15 +23,15 @@ class Client(SimObj):
 
     def work(self):
         while True:
-            idle_time = random.uniform(1, 10)
-            yield self.env.timeout(idle_time)
+            idle_time = self.config['idle_time']
+            yield self.env.timeout(idle_time.get())
 
             # load next page
             requests = self.config['pager'].get_random_page_requests(self)
             for request in requests:
                 yield from request.send(self.config['balancer_pipe'],
                                         self.client_pipe,
-                                        random.uniform(1, 10))
+                                        self.config['uplink_speed'].get())
 
                 print("[Client %d] Request: %d" % (self.id, request.data['page_id']))
 
