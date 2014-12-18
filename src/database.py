@@ -25,8 +25,8 @@ class FullScanQuery(TrTime):
 
 
 class Database(SimObj):
-    def __init__(self, env, id, config):
-        super().__init__(env, id, config)
+    def __init__(self, env, logger, id, config):
+        super().__init__(env, logger, id, config)
         self.cpu = simpy.Resource(env, config['cores'])
         self.disk = simpy.Resource(env, 1)
 

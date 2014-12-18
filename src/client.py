@@ -11,8 +11,8 @@ class ClientType(Enum):
 
 
 class Client(SimObj):
-    def __init__(self, env, id, config):
-        super().__init__(env, id, config)
+    def __init__(self, env, logger, id, config):
+        super().__init__(env, logger, id, config)
 
         self.client_pipe = simpy.Store(self.env)
 
@@ -33,8 +33,8 @@ class Client(SimObj):
                                         self.client_pipe,
                                         self.config['uplink_speed'].get())
 
-                print("[Client %d] Request: %d" % (self.id, request.data['page_id']))
+                self.logger.log(self, "[Client %d] Request: %d" % (self.id, request.data['page_id']))
 
                 # wait for response
                 response = yield self.client_pipe.get()
-                print("[Client %d] Response: %d" % (self.id, response.data['page_id']))
+                self.logger.log(self, "[Client %d] Response: %d" % (self.id, response.data['page_id']))

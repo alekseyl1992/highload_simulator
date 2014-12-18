@@ -11,8 +11,8 @@ class BalanceMode(Enum):
 
 
 class Balancer(SimObj):
-    def __init__(self, env, id, config):
-        super().__init__(env, id, config)
+    def __init__(self, env, logger, id, config):
+        super().__init__(env, logger, id, config)
 
         mode = config['mode']
         if mode == BalanceMode.ROUND_ROBIN:
@@ -58,7 +58,7 @@ class Balancer(SimObj):
         return server_id
 
     def start(self):
-        print("Balancer started at %d" % self.env.now)
+        self.logger.log(self, "Balancer started at %d" % self.env.now)
 
         self.requests_process = self.env.process(self.requests_handler())
         self.send_process = self.env.process(self.sender())

@@ -6,8 +6,8 @@ from src.simobj import SimObj
 
 
 class Server(SimObj):
-    def __init__(self, env, id, config):
-        super().__init__(env, id, config)
+    def __init__(self, env, logger, id, config):
+        super().__init__(env, logger, id, config)
 
         self.server_pipe = simpy.Store(self.env)
         self.requests_count = 0
@@ -21,7 +21,7 @@ class Server(SimObj):
         return self.server_pipe
 
     def start(self):
-        print("Server %d started at %d" % (self.id, self.env.now))
+        self.logger.log(self, "Server %d started at %d" % (self.id, self.env.now))
 
         # fork
         for pid in range(0, self.config['cores']):
@@ -34,7 +34,7 @@ class Server(SimObj):
 
             req_time = random.uniform(10, 20)
             yield self.env.timeout(req_time)
-            print("[Server: %d, pid: %d] Request from %d: page %d handled at %d"
+            self.logger.log(self, "[Server: %d, pid: %d] Request from %d: page %d handled at %d"
                   % (self.id, pid, request.source_id, request.data['page_id'], self.env.now))
 
             # query db
