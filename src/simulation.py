@@ -23,7 +23,7 @@ class Simulation:
 
         # create db
         db = Database(env, self.logger, 0, dict(
-            cores=100
+            max_connections=100
         ))
 
         # create bd query pattern
@@ -89,7 +89,7 @@ class Simulation:
 
         # analise statistics
         self.logger.log(self, "-----------------------")
-        self.logger.log(self, "Statistics")
+        self.logger.log(self, "Statistics (for %s servers)" % servers_count)
         self.logger.log(self, "-----------------------")
 
         rps = float(balancer.get_requests_count()) / (env.now - start_time) * 1000

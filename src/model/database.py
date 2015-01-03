@@ -27,23 +27,13 @@ class FullScanQuery(TrTime):
 class Database(SimObj):
     def __init__(self, env, logger, id, config):
         super().__init__(env, logger, id, config)
-        self.cpu = simpy.Resource(env, config['cores'])
-        # self.disk = simpy.Resource(env, 1)
+        self.thread_pool = simpy.Resource(env, config['max_connections'])
 
     def query(self, q):
-        cpu = self.cpu.request()
-        yield cpu
-
-        # request disk if needed
-        # disk = None
-        # if isinstance(q, RangeQuery) or isinstance(q, FullScanQuery):
-        #     disk = self.disk.request()
-        #     yield disk
+        thread_pool = self.thread_pool.request()
+        yield thread_pool
 
         query_time = q.get()
         yield self.env.timeout(query_time)
 
-        # if disk is not None:
-        #     self.disk.release(disk)
-
-        self.cpu.release(cpu)
+        self.thread_pool.release(thread_pool)
