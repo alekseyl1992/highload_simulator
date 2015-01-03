@@ -1,106 +1,1008 @@
-C:\python\python.exe C:\Projects\Python\highload_simulator\src\main.py
+C:\python\python.exe C:/Projects/Python/highload_simulator/src/main.py
 Starting simulation with 1 servers
------------------------
-Statistics
------------------------
-[Balancer] RPS: 848.683333
-[Server 0] RPS: 55.455000
-Average request time: 863.430146
--------------------
-
 Starting simulation with 2 servers
------------------------
-Statistics
------------------------
-[Balancer] RPS: 906.201667
-[Server 0] RPS: 54.523333
-[Server 1] RPS: 54.533333
-Average request time: 454.672719
--------------------
-
 Starting simulation with 3 servers
------------------------
-Statistics
------------------------
-[Balancer] RPS: 913.363333
-[Server 0] RPS: 38.541667
-[Server 1] RPS: 38.553333
-[Server 2] RPS: 38.548333
-Average request time: 444.303290
--------------------
-
 Starting simulation with 4 servers
------------------------
-Statistics
------------------------
-[Balancer] RPS: 909.636667
-[Server 0] RPS: 28.001667
-[Server 1] RPS: 28.001667
-[Server 2] RPS: 27.998333
-[Server 3] RPS: 28.000000
-Average request time: 448.753311
--------------------
-
 Starting simulation with 5 servers
------------------------
-Statistics
------------------------
-[Balancer] RPS: 912.963333
-[Server 0] RPS: 23.128333
-[Server 1] RPS: 23.126667
-[Server 2] RPS: 23.128333
-[Server 3] RPS: 23.128333
-[Server 4] RPS: 23.126667
-Average request time: 444.455465
--------------------
-
 Starting simulation with 6 servers
------------------------
-Statistics
------------------------
-[Balancer] RPS: 906.813333
-[Server 0] RPS: 18.210000
-[Server 1] RPS: 18.213333
-[Server 2] RPS: 18.211667
-[Server 3] RPS: 18.210000
-[Server 4] RPS: 18.210000
-[Server 5] RPS: 18.210000
-Average request time: 451.954930
--------------------
-
 Starting simulation with 7 servers
------------------------
-Statistics
------------------------
-[Balancer] RPS: 906.488333
-[Server 0] RPS: 15.525000
-[Server 1] RPS: 15.528333
-[Server 2] RPS: 15.526667
-[Server 3] RPS: 15.530000
-[Server 4] RPS: 15.526667
-[Server 5] RPS: 15.530000
-[Server 6] RPS: 15.523333
-Average request time: 452.602615
--------------------
-
 Starting simulation with 8 servers
 -----------------------
-Statistics
+Statistics (for 1 servers)
 -----------------------
-[Balancer] RPS: 901.833333
-[Server 0] RPS: 13.066667
-[Server 1] RPS: 13.070000
-[Server 2] RPS: 13.071667
-[Server 3] RPS: 13.071667
-[Server 4] RPS: 13.070000
-[Server 5] RPS: 13.071667
-[Server 6] RPS: 13.070000
-[Server 7] RPS: 13.068333
-Average request time: 458.884777
+[Balancer] RPS: 846.753333
+[Server 0] RPS: 55.386667
+Average request time: 915.603628
+-------------------
+
+-----------------------
+Statistics (for 3 servers)
+-----------------------
+[Balancer] RPS: 907.051667
+[Server 0] RPS: 36.391667
+[Server 1] RPS: 36.393333
+[Server 2] RPS: 36.395000
+Average request time: 451.690663
+-------------------
+
+-----------------------
+Statistics (for 8 servers)
+-----------------------
+[Balancer] RPS: 904.983333
+[Server 0] RPS: 13.435000
+[Server 1] RPS: 13.435000
+[Server 2] RPS: 13.431667
+[Server 3] RPS: 13.435000
+[Server 4] RPS: 13.435000
+[Server 5] RPS: 13.435000
+[Server 6] RPS: 13.435000
+[Server 7] RPS: 13.433333
+Average request time: 454.477615
+-------------------
+
+-----------------------
+Statistics (for 6 servers)
+-----------------------
+[Balancer] RPS: 904.410000
+[Server 0] RPS: 17.830000
+[Server 1] RPS: 17.830000
+[Server 2] RPS: 17.826667
+[Server 3] RPS: 17.828333
+[Server 4] RPS: 17.828333
+[Server 5] RPS: 17.833333
+Average request time: 455.236772
+-------------------
+
+-----------------------
+Statistics (for 2 servers)
+-----------------------
+[Balancer] RPS: 907.071667
+[Server 0] RPS: 54.381667
+[Server 1] RPS: 54.381667
+Average request time: 452.823657
+-------------------
+
+-----------------------
+Statistics (for 7 servers)
+-----------------------
+[Balancer] RPS: 906.661667
+[Server 0] RPS: 15.523333
+[Server 1] RPS: 15.525000
+[Server 2] RPS: 15.523333
+[Server 3] RPS: 15.521667
+[Server 4] RPS: 15.523333
+[Server 5] RPS: 15.523333
+[Server 6] RPS: 15.523333
+Average request time: 451.774071
+-------------------
+
+-----------------------
+Statistics (for 5 servers)
+-----------------------
+[Balancer] RPS: 911.663333
+[Server 0] RPS: 22.816667
+[Server 1] RPS: 22.821667
+[Server 2] RPS: 22.816667
+[Server 3] RPS: 22.821667
+[Server 4] RPS: 22.818333
+Average request time: 446.130286
+-------------------
+
+-----------------------
+Statistics (for 4 servers)
+-----------------------
+[Balancer] RPS: 921.220000
+[Server 0] RPS: 30.786667
+[Server 1] RPS: 30.785000
+[Server 2] RPS: 30.785000
+[Server 3] RPS: 30.786667
+Average request time: 434.493220
+-------------------
+
+Starting simulation with 1 servers
+Starting simulation with 2 servers
+Starting simulation with 3 servers
+Starting simulation with 4 servers
+Starting simulation with 5 servers
+Starting simulation with 6 servers
+Starting simulation with 7 servers
+Starting simulation with 8 servers
+-----------------------
+Statistics (for 1 servers)
+-----------------------
+[Balancer] RPS: 850.926667
+[Server 0] RPS: 55.485000
+Average request time: 875.594483
+-------------------
+
+-----------------------
+Statistics (for 2 servers)
+-----------------------
+[Balancer] RPS: 907.756667
+[Server 0] RPS: 55.226667
+[Server 1] RPS: 55.206667
+Average request time: 456.652703
+-------------------
+
+-----------------------
+Statistics (for 3 servers)
+-----------------------
+[Balancer] RPS: 908.801667
+[Server 0] RPS: 37.133333
+[Server 1] RPS: 37.133333
+[Server 2] RPS: 37.135000
+Average request time: 450.301888
+-------------------
+
+-----------------------
+Statistics (for 6 servers)
+-----------------------
+[Balancer] RPS: 904.093333
+[Server 0] RPS: 17.776667
+[Server 1] RPS: 17.773333
+[Server 2] RPS: 17.775000
+[Server 3] RPS: 17.775000
+[Server 4] RPS: 17.775000
+[Server 5] RPS: 17.778333
+Average request time: 455.354435
+-------------------
+
+-----------------------
+Statistics (for 8 servers)
+-----------------------
+[Balancer] RPS: 913.515000
+[Server 0] RPS: 14.546667
+[Server 1] RPS: 14.543333
+[Server 2] RPS: 14.545000
+[Server 3] RPS: 14.548333
+[Server 4] RPS: 14.550000
+[Server 5] RPS: 14.545000
+[Server 6] RPS: 14.543333
+[Server 7] RPS: 14.548333
+Average request time: 444.096768
+-------------------
+
+-----------------------
+Statistics (for 4 servers)
+-----------------------
+[Balancer] RPS: 913.246667
+[Server 0] RPS: 29.098333
+[Server 1] RPS: 29.096667
+[Server 2] RPS: 29.103333
+[Server 3] RPS: 29.098333
+Average request time: 444.125467
+-------------------
+
+-----------------------
+Statistics (for 5 servers)
+-----------------------
+[Balancer] RPS: 916.233333
+[Server 0] RPS: 23.768333
+[Server 1] RPS: 23.770000
+[Server 2] RPS: 23.768333
+[Server 3] RPS: 23.770000
+[Server 4] RPS: 23.768333
+Average request time: 440.810088
+-------------------
+
+-----------------------
+Statistics (for 7 servers)
+-----------------------
+[Balancer] RPS: 917.106667
+[Server 0] RPS: 17.046667
+[Server 1] RPS: 17.046667
+[Server 2] RPS: 17.050000
+[Server 3] RPS: 17.046667
+[Server 4] RPS: 17.045000
+[Server 5] RPS: 17.045000
+[Server 6] RPS: 17.045000
+Average request time: 439.833710
+-------------------
+
+Starting simulation with 1 servers
+Starting simulation with 2 servers
+Starting simulation with 3 servers
+Starting simulation with 4 servers
+Starting simulation with 5 servers
+Starting simulation with 6 servers
+Starting simulation with 7 servers
+Starting simulation with 8 servers
+-----------------------
+Statistics (for 1 servers)
+-----------------------
+[Balancer] RPS: 821.095000
+[Server 0] RPS: 55.575000
+Average request time: 1036.879726
+-------------------
+
+-----------------------
+Statistics (for 2 servers)
+-----------------------
+[Balancer] RPS: 903.398333
+[Server 0] RPS: 53.110000
+[Server 1] RPS: 53.115000
+Average request time: 457.251415
+-------------------
+
+-----------------------
+Statistics (for 3 servers)
+-----------------------
+[Balancer] RPS: 904.536667
+[Server 0] RPS: 35.773333
+[Server 1] RPS: 35.770000
+[Server 2] RPS: 35.771667
+Average request time: 455.345750
+-------------------
+
+-----------------------
+Statistics (for 5 servers)
+-----------------------
+[Balancer] RPS: 908.780000
+[Server 0] RPS: 22.198333
+[Server 1] RPS: 22.200000
+[Server 2] RPS: 22.200000
+[Server 3] RPS: 22.200000
+[Server 4] RPS: 22.201667
+Average request time: 449.763852
+-------------------
+
+-----------------------
+Statistics (for 7 servers)
+-----------------------
+[Balancer] RPS: 905.565000
+[Server 0] RPS: 15.421667
+[Server 1] RPS: 15.425000
+[Server 2] RPS: 15.426667
+[Server 3] RPS: 15.426667
+[Server 4] RPS: 15.421667
+[Server 5] RPS: 15.426667
+[Server 6] RPS: 15.421667
+Average request time: 453.697335
+-------------------
+
+-----------------------
+Statistics (for 4 servers)
+-----------------------
+[Balancer] RPS: 904.953333
+[Server 0] RPS: 26.798333
+[Server 1] RPS: 26.793333
+[Server 2] RPS: 26.800000
+[Server 3] RPS: 26.793333
+Average request time: 454.588671
+-------------------
+
+-----------------------
+Statistics (for 6 servers)
+-----------------------
+[Balancer] RPS: 913.590000
+[Server 0] RPS: 19.361667
+[Server 1] RPS: 19.363333
+[Server 2] RPS: 19.361667
+[Server 3] RPS: 19.363333
+[Server 4] RPS: 19.358333
+[Server 5] RPS: 19.358333
+Average request time: 443.447505
+-------------------
+
+-----------------------
+Statistics (for 8 servers)
+-----------------------
+[Balancer] RPS: 913.598333
+[Server 0] RPS: 14.461667
+[Server 1] RPS: 14.465000
+[Server 2] RPS: 14.465000
+[Server 3] RPS: 14.463333
+[Server 4] RPS: 14.465000
+[Server 5] RPS: 14.465000
+[Server 6] RPS: 14.463333
+[Server 7] RPS: 14.463333
+Average request time: 444.038172
+-------------------
+
+Starting simulation with 1 servers
+Starting simulation with 2 servers
+Starting simulation with 3 servers
+Starting simulation with 4 servers
+Starting simulation with 5 servers
+Starting simulation with 6 servers
+Starting simulation with 7 servers
+Starting simulation with 8 servers
+-----------------------
+Statistics (for 1 servers)
+-----------------------
+[Balancer] RPS: 850.053333
+[Server 0] RPS: 55.465000
+Average request time: 828.923011
+-------------------
+
+-----------------------
+Statistics (for 4 servers)
+-----------------------
+[Balancer] RPS: 901.996667
+[Server 0] RPS: 26.206667
+[Server 1] RPS: 26.215000
+[Server 2] RPS: 26.211667
+[Server 3] RPS: 26.206667
+Average request time: 458.153141
+-------------------
+
+-----------------------
+Statistics (for 2 servers)
+-----------------------
+[Balancer] RPS: 904.648333
+[Server 0] RPS: 53.376667
+[Server 1] RPS: 53.370000
+Average request time: 455.653092
+-------------------
+
+-----------------------
+Statistics (for 5 servers)
+-----------------------
+[Balancer] RPS: 903.750000
+[Server 0] RPS: 21.318333
+[Server 1] RPS: 21.323333
+[Server 2] RPS: 21.318333
+[Server 3] RPS: 21.318333
+[Server 4] RPS: 21.320000
+Average request time: 455.597968
+-------------------
+
+-----------------------
+Statistics (for 3 servers)
+-----------------------
+[Balancer] RPS: 907.138333
+[Server 0] RPS: 36.546667
+[Server 1] RPS: 36.548333
+[Server 2] RPS: 36.548333
+Average request time: 451.654376
+-------------------
+
+-----------------------
+Statistics (for 6 servers)
+-----------------------
+[Balancer] RPS: 906.481667
+[Server 0] RPS: 18.083333
+[Server 1] RPS: 18.088333
+[Server 2] RPS: 18.086667
+[Server 3] RPS: 18.088333
+[Server 4] RPS: 18.088333
+[Server 5] RPS: 18.090000
+Average request time: 452.963690
+-------------------
+
+-----------------------
+Statistics (for 8 servers)
+-----------------------
+[Balancer] RPS: 907.076667
+[Server 0] RPS: 13.663333
+[Server 1] RPS: 13.665000
+[Server 2] RPS: 13.665000
+[Server 3] RPS: 13.663333
+[Server 4] RPS: 13.665000
+[Server 5] RPS: 13.661667
+[Server 6] RPS: 13.663333
+[Server 7] RPS: 13.660000
+Average request time: 451.716522
+-------------------
+
+-----------------------
+Statistics (for 7 servers)
+-----------------------
+[Balancer] RPS: 911.775000
+[Server 0] RPS: 16.328333
+[Server 1] RPS: 16.330000
+[Server 2] RPS: 16.326667
+[Server 3] RPS: 16.331667
+[Server 4] RPS: 16.333333
+[Server 5] RPS: 16.328333
+[Server 6] RPS: 16.330000
+Average request time: 445.716018
+-------------------
+
+Starting simulation with 1 servers
+Starting simulation with 2 servers
+Starting simulation with 3 servers
+Starting simulation with 4 servers
+Starting simulation with 5 servers
+Starting simulation with 6 servers
+Starting simulation with 7 servers
+Starting simulation with 8 servers
+-----------------------
+Statistics (for 1 servers)
+-----------------------
+[Balancer] RPS: 851.881667
+[Server 0] RPS: 55.650000
+Average request time: 842.282973
+-------------------
+
+-----------------------
+Statistics (for 2 servers)
+-----------------------
+[Balancer] RPS: 905.785000
+[Server 0] RPS: 53.903333
+[Server 1] RPS: 53.895000
+Average request time: 453.948894
+-------------------
+
+-----------------------
+Statistics (for 3 servers)
+-----------------------
+[Balancer] RPS: 909.988333
+[Server 0] RPS: 37.565000
+[Server 1] RPS: 37.565000
+[Server 2] RPS: 37.570000
+Average request time: 448.516261
+-------------------
+
+-----------------------
+Statistics (for 7 servers)
+-----------------------
+[Balancer] RPS: 903.196667
+[Server 0] RPS: 15.096667
+[Server 1] RPS: 15.101667
+[Server 2] RPS: 15.101667
+[Server 3] RPS: 15.105000
+[Server 4] RPS: 15.100000
+[Server 5] RPS: 15.100000
+[Server 6] RPS: 15.101667
+Average request time: 456.383061
+-------------------
+
+-----------------------
+Statistics (for 5 servers)
+-----------------------
+[Balancer] RPS: 911.968333
+[Server 0] RPS: 22.873333
+[Server 1] RPS: 22.873333
+[Server 2] RPS: 22.876667
+[Server 3] RPS: 22.873333
+[Server 4] RPS: 22.875000
+Average request time: 446.024757
+-------------------
+
+-----------------------
+Statistics (for 4 servers)
+-----------------------
+[Balancer] RPS: 907.238333
+[Server 0] RPS: 27.480000
+[Server 1] RPS: 27.483333
+[Server 2] RPS: 27.481667
+[Server 3] RPS: 27.483333
+Average request time: 451.389084
+-------------------
+
+-----------------------
+Statistics (for 8 servers)
+-----------------------
+[Balancer] RPS: 905.540000
+[Server 0] RPS: 13.495000
+[Server 1] RPS: 13.495000
+[Server 2] RPS: 13.495000
+[Server 3] RPS: 13.496667
+[Server 4] RPS: 13.493333
+[Server 5] RPS: 13.495000
+[Server 6] RPS: 13.495000
+[Server 7] RPS: 13.491667
+Average request time: 453.845065
+-------------------
+
+-----------------------
+Statistics (for 6 servers)
+-----------------------
+[Balancer] RPS: 907.641667
+[Server 0] RPS: 18.345000
+[Server 1] RPS: 18.345000
+[Server 2] RPS: 18.345000
+[Server 3] RPS: 18.346667
+[Server 4] RPS: 18.341667
+[Server 5] RPS: 18.340000
+Average request time: 451.330521
+-------------------
+
+Starting simulation with 1 servers
+Starting simulation with 2 servers
+Starting simulation with 3 servers
+Starting simulation with 4 servers
+Starting simulation with 5 servers
+Starting simulation with 6 servers
+Starting simulation with 7 servers
+Starting simulation with 8 servers
+-----------------------
+Statistics (for 1 servers)
+-----------------------
+[Balancer] RPS: 851.005000
+[Server 0] RPS: 55.321667
+Average request time: 897.865687
+-------------------
+
+-----------------------
+Statistics (for 3 servers)
+-----------------------
+[Balancer] RPS: 910.111667
+[Server 0] RPS: 37.426667
+[Server 1] RPS: 37.420000
+[Server 2] RPS: 37.420000
+Average request time: 448.182416
+-------------------
+
+-----------------------
+Statistics (for 2 servers)
+-----------------------
+[Balancer] RPS: 905.688333
+[Server 0] RPS: 54.156667
+[Server 1] RPS: 54.183333
+Average request time: 454.978867
+-------------------
+
+-----------------------
+Statistics (for 4 servers)
+-----------------------
+[Balancer] RPS: 905.925000
+[Server 0] RPS: 27.110000
+[Server 1] RPS: 27.111667
+[Server 2] RPS: 27.106667
+[Server 3] RPS: 27.108333
+Average request time: 453.672232
+-------------------
+
+-----------------------
+Statistics (for 5 servers)
+-----------------------
+[Balancer] RPS: 914.158333
+[Server 0] RPS: 23.291667
+[Server 1] RPS: 23.293333
+[Server 2] RPS: 23.293333
+[Server 3] RPS: 23.293333
+[Server 4] RPS: 23.291667
+Average request time: 442.998670
+-------------------
+
+-----------------------
+Statistics (for 6 servers)
+-----------------------
+[Balancer] RPS: 910.078333
+[Server 0] RPS: 18.841667
+[Server 1] RPS: 18.845000
+[Server 2] RPS: 18.843333
+[Server 3] RPS: 18.843333
+[Server 4] RPS: 18.841667
+[Server 5] RPS: 18.846667
+Average request time: 448.372666
+-------------------
+
+-----------------------
+Statistics (for 8 servers)
+-----------------------
+[Balancer] RPS: 907.805000
+[Server 0] RPS: 13.845000
+[Server 1] RPS: 13.845000
+[Server 2] RPS: 13.843333
+[Server 3] RPS: 13.843333
+[Server 4] RPS: 13.843333
+[Server 5] RPS: 13.843333
+[Server 6] RPS: 13.841667
+[Server 7] RPS: 13.840000
+Average request time: 450.891551
+-------------------
+
+-----------------------
+Statistics (for 7 servers)
+-----------------------
+[Balancer] RPS: 912.713333
+[Server 0] RPS: 16.421667
+[Server 1] RPS: 16.418333
+[Server 2] RPS: 16.423333
+[Server 3] RPS: 16.420000
+[Server 4] RPS: 16.423333
+[Server 5] RPS: 16.420000
+[Server 6] RPS: 16.420000
+Average request time: 445.178168
+-------------------
+
+Starting simulation with 1 servers
+Starting simulation with 2 servers
+Starting simulation with 3 servers
+Starting simulation with 4 servers
+Starting simulation with 5 servers
+Starting simulation with 6 servers
+Starting simulation with 7 servers
+Starting simulation with 8 servers
+-----------------------
+Statistics (for 1 servers)
+-----------------------
+[Balancer] RPS: 851.683333
+[Server 0] RPS: 55.480000
+Average request time: 827.373079
+-------------------
+
+-----------------------
+Statistics (for 2 servers)
+-----------------------
+[Balancer] RPS: 903.788333
+[Server 0] RPS: 53.255000
+[Server 1] RPS: 53.261667
+Average request time: 456.079058
+-------------------
+
+-----------------------
+Statistics (for 5 servers)
+-----------------------
+[Balancer] RPS: 911.616667
+[Server 0] RPS: 22.816667
+[Server 1] RPS: 22.816667
+[Server 2] RPS: 22.815000
+[Server 3] RPS: 22.816667
+[Server 4] RPS: 22.818333
+Average request time: 446.541786
+-------------------
+
+-----------------------
+Statistics (for 3 servers)
+-----------------------
+[Balancer] RPS: 906.508333
+[Server 0] RPS: 36.461667
+[Server 1] RPS: 36.456667
+[Server 2] RPS: 36.463333
+Average request time: 452.038449
+-------------------
+
+-----------------------
+Statistics (for 6 servers)
+-----------------------
+[Balancer] RPS: 902.901667
+[Server 0] RPS: 17.598333
+[Server 1] RPS: 17.601667
+[Server 2] RPS: 17.600000
+[Server 3] RPS: 17.601667
+[Server 4] RPS: 17.601667
+[Server 5] RPS: 17.603333
+Average request time: 457.601289
+-------------------
+
+-----------------------
+Statistics (for 4 servers)
+-----------------------
+[Balancer] RPS: 908.483333
+[Server 0] RPS: 27.785000
+[Server 1] RPS: 27.786667
+[Server 2] RPS: 27.783333
+[Server 3] RPS: 27.785000
+Average request time: 450.451150
+-------------------
+
+-----------------------
+Statistics (for 8 servers)
+-----------------------
+[Balancer] RPS: 905.970000
+[Server 0] RPS: 13.610000
+[Server 1] RPS: 13.615000
+[Server 2] RPS: 13.616667
+[Server 3] RPS: 13.615000
+[Server 4] RPS: 13.615000
+[Server 5] RPS: 13.613333
+[Server 6] RPS: 13.616667
+[Server 7] RPS: 13.613333
+Average request time: 453.392295
+-------------------
+
+-----------------------
+Statistics (for 7 servers)
+-----------------------
+[Balancer] RPS: 905.946667
+[Server 0] RPS: 15.486667
+[Server 1] RPS: 15.486667
+[Server 2] RPS: 15.488333
+[Server 3] RPS: 15.488333
+[Server 4] RPS: 15.491667
+[Server 5] RPS: 15.486667
+[Server 6] RPS: 15.486667
+Average request time: 453.595010
+-------------------
+
+Starting simulation with 1 servers
+Starting simulation with 2 servers
+Starting simulation with 3 servers
+Starting simulation with 4 servers
+Starting simulation with 5 servers
+Starting simulation with 6 servers
+Starting simulation with 7 servers
+Starting simulation with 8 servers
+-----------------------
+Statistics (for 1 servers)
+-----------------------
+[Balancer] RPS: 846.590000
+[Server 0] RPS: 55.315000
+Average request time: 934.234533
+-------------------
+
+-----------------------
+Statistics (for 2 servers)
+-----------------------
+[Balancer] RPS: 904.543333
+[Server 0] RPS: 53.473333
+[Server 1] RPS: 53.471667
+Average request time: 455.477555
+-------------------
+
+-----------------------
+Statistics (for 3 servers)
+-----------------------
+[Balancer] RPS: 911.806667
+[Server 0] RPS: 38.043333
+[Server 1] RPS: 38.043333
+[Server 2] RPS: 38.043333
+Average request time: 446.251345
+-------------------
+
+-----------------------
+Statistics (for 4 servers)
+-----------------------
+[Balancer] RPS: 907.655000
+[Server 0] RPS: 27.431667
+[Server 1] RPS: 27.428333
+[Server 2] RPS: 27.431667
+[Server 3] RPS: 27.428333
+Average request time: 451.157659
+-------------------
+
+-----------------------
+Statistics (for 6 servers)
+-----------------------
+[Balancer] RPS: 911.111667
+[Server 0] RPS: 18.855000
+[Server 1] RPS: 18.853333
+[Server 2] RPS: 18.855000
+[Server 3] RPS: 18.851667
+[Server 4] RPS: 18.855000
+[Server 5] RPS: 18.856667
+Average request time: 447.456739
+-------------------
+
+-----------------------
+Statistics (for 7 servers)
+-----------------------
+[Balancer] RPS: 907.826667
+[Server 0] RPS: 15.770000
+[Server 1] RPS: 15.770000
+[Server 2] RPS: 15.771667
+[Server 3] RPS: 15.770000
+[Server 4] RPS: 15.773333
+[Server 5] RPS: 15.773333
+[Server 6] RPS: 15.771667
+Average request time: 450.401218
+-------------------
+
+-----------------------
+Statistics (for 8 servers)
+-----------------------
+[Balancer] RPS: 904.316667
+[Server 0] RPS: 13.391667
+[Server 1] RPS: 13.391667
+[Server 2] RPS: 13.395000
+[Server 3] RPS: 13.391667
+[Server 4] RPS: 13.386667
+[Server 5] RPS: 13.388333
+[Server 6] RPS: 13.386667
+[Server 7] RPS: 13.388333
+Average request time: 455.166804
+-------------------
+
+-----------------------
+Statistics (for 5 servers)
+-----------------------
+[Balancer] RPS: 919.836667
+[Server 0] RPS: 24.468333
+[Server 1] RPS: 24.471667
+[Server 2] RPS: 24.468333
+[Server 3] RPS: 24.470000
+[Server 4] RPS: 24.465000
+Average request time: 436.339192
+-------------------
+
+Starting simulation with 1 servers
+Starting simulation with 2 servers
+Starting simulation with 3 servers
+Starting simulation with 4 servers
+Starting simulation with 5 servers
+Starting simulation with 6 servers
+Starting simulation with 7 servers
+Starting simulation with 8 servers
+-----------------------
+Statistics (for 1 servers)
+-----------------------
+[Balancer] RPS: 839.986667
+[Server 0] RPS: 55.488333
+Average request time: 962.258259
+-------------------
+
+-----------------------
+Statistics (for 2 servers)
+-----------------------
+[Balancer] RPS: 904.973333
+[Server 0] RPS: 53.773333
+[Server 1] RPS: 53.775000
+Average request time: 455.352105
+-------------------
+
+-----------------------
+Statistics (for 3 servers)
+-----------------------
+[Balancer] RPS: 907.390000
+[Server 0] RPS: 36.570000
+[Server 1] RPS: 36.571667
+[Server 2] RPS: 36.568333
+Average request time: 451.338230
+-------------------
+
+-----------------------
+Statistics (for 4 servers)
+-----------------------
+[Balancer] RPS: 908.450000
+[Server 0] RPS: 27.766667
+[Server 1] RPS: 27.768333
+[Server 2] RPS: 27.761667
+[Server 3] RPS: 27.765000
+Average request time: 450.375597
+-------------------
+
+-----------------------
+Statistics (for 5 servers)
+-----------------------
+[Balancer] RPS: 908.616667
+[Server 0] RPS: 22.193333
+[Server 1] RPS: 22.200000
+[Server 2] RPS: 22.196667
+[Server 3] RPS: 22.196667
+[Server 4] RPS: 22.195000
+Average request time: 449.808371
+-------------------
+
+-----------------------
+Statistics (for 8 servers)
+-----------------------
+[Balancer] RPS: 906.816667
+[Server 0] RPS: 13.595000
+[Server 1] RPS: 13.600000
+[Server 2] RPS: 13.600000
+[Server 3] RPS: 13.601667
+[Server 4] RPS: 13.601667
+[Server 5] RPS: 13.598333
+[Server 6] RPS: 13.600000
+[Server 7] RPS: 13.596667
+Average request time: 452.309969
+-------------------
+
+-----------------------
+Statistics (for 7 servers)
+-----------------------
+[Balancer] RPS: 904.918333
+[Server 0] RPS: 15.320000
+[Server 1] RPS: 15.321667
+[Server 2] RPS: 15.320000
+[Server 3] RPS: 15.323333
+[Server 4] RPS: 15.320000
+[Server 5] RPS: 15.318333
+[Server 6] RPS: 15.323333
+Average request time: 454.030608
+-------------------
+
+-----------------------
+Statistics (for 6 servers)
+-----------------------
+[Balancer] RPS: 915.008333
+[Server 0] RPS: 19.581667
+[Server 1] RPS: 19.580000
+[Server 2] RPS: 19.581667
+[Server 3] RPS: 19.580000
+[Server 4] RPS: 19.580000
+[Server 5] RPS: 19.581667
+Average request time: 442.239132
+-------------------
+
+Starting simulation with 1 servers
+Starting simulation with 2 servers
+Starting simulation with 3 servers
+Starting simulation with 4 servers
+Starting simulation with 5 servers
+Starting simulation with 6 servers
+Starting simulation with 7 servers
+Starting simulation with 8 servers
+-----------------------
+Statistics (for 1 servers)
+-----------------------
+[Balancer] RPS: 852.721667
+[Server 0] RPS: 55.516667
+Average request time: 849.471195
+-------------------
+
+-----------------------
+Statistics (for 2 servers)
+-----------------------
+[Balancer] RPS: 908.515000
+[Server 0] RPS: 55.405000
+[Server 1] RPS: 55.431667
+Average request time: 458.200452
+-------------------
+
+-----------------------
+Statistics (for 4 servers)
+-----------------------
+[Balancer] RPS: 910.075000
+[Server 0] RPS: 28.123333
+[Server 1] RPS: 28.123333
+[Server 2] RPS: 28.125000
+[Server 3] RPS: 28.125000
+Average request time: 448.425078
+-------------------
+
+-----------------------
+Statistics (for 6 servers)
+-----------------------
+[Balancer] RPS: 904.978333
+[Server 0] RPS: 17.895000
+[Server 1] RPS: 17.896667
+[Server 2] RPS: 17.893333
+[Server 3] RPS: 17.896667
+[Server 4] RPS: 17.898333
+[Server 5] RPS: 17.893333
+Average request time: 454.290085
+-------------------
+
+-----------------------
+Statistics (for 3 servers)
+-----------------------
+[Balancer] RPS: 912.126667
+[Server 0] RPS: 38.101667
+[Server 1] RPS: 38.106667
+[Server 2] RPS: 38.103333
+Average request time: 445.420021
+-------------------
+
+-----------------------
+Statistics (for 8 servers)
+-----------------------
+[Balancer] RPS: 910.276667
+[Server 0] RPS: 14.071667
+[Server 1] RPS: 14.073333
+[Server 2] RPS: 14.071667
+[Server 3] RPS: 14.073333
+[Server 4] RPS: 14.075000
+[Server 5] RPS: 14.076667
+[Server 6] RPS: 14.073333
+[Server 7] RPS: 14.070000
+Average request time: 447.698888
+-------------------
+
+-----------------------
+Statistics (for 5 servers)
+-----------------------
+[Balancer] RPS: 911.313333
+[Server 0] RPS: 22.758333
+[Server 1] RPS: 22.765000
+[Server 2] RPS: 22.765000
+[Server 3] RPS: 22.765000
+[Server 4] RPS: 22.765000
+Average request time: 446.942952
+-------------------
+
+-----------------------
+Statistics (for 7 servers)
+-----------------------
+[Balancer] RPS: 916.146667
+[Server 0] RPS: 16.973333
+[Server 1] RPS: 16.973333
+[Server 2] RPS: 16.971667
+[Server 3] RPS: 16.971667
+[Server 4] RPS: 16.971667
+[Server 5] RPS: 16.970000
+[Server 6] RPS: 16.971667
+Average request time: 441.326697
 -------------------
 
 -------------------
+Collected results:  [(1, 897.0486573040162), (2, 455.64177990917705), (3, 450.07393991708506), (4, 449.6831300248329), (5, 446.09579246073974), (6, 450.82928346867163), (7, 449.19358948715455), (8, 450.7633648473905)]
+-------------------
 Experiment results:
-(2, 454.6727191741081)
+(2, 455.64177990917705)
 
 Process finished with exit code 0
